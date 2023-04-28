@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.video_player.Player">
+   <bottom>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="1099.0" spacing="15.0" stylesheets="@../../../application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fx:id="Play_Image" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../circled_play_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane prefHeight="36.0" prefWidth="27.0" />
+            <Button fx:id="btnPrevious" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../rewind_button_round_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnStop" layoutX="61.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../stop_circled_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnForward" layoutX="112.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../fast_forward_round_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane prefHeight="38.0" prefWidth="45.0" />
+            <Button fx:id="btnPlaylist" layoutX="163.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../playlist_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnRepeat" layoutX="214.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fx:id="Repeat_Image" fitHeight="23.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../repeat_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnShuffle" layoutX="265.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="36.0" prefWidth="45.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../shuffle_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane prefHeight="43.0" prefWidth="302.0" />
+            <Button fx:id="btnVolume" layoutX="316.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="30.0" prefWidth="43.0" HBox.hgrow="NEVER">
+               <graphic>
+                  <ImageView fx:id="Volume_Image" fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../speaker_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="lblVolume" prefHeight="43.0" prefWidth="77.0" text="100%" />
+            <Slider fx:id="volume_slider" prefHeight="19.0" prefWidth="140.0" value="100.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Slider>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <BorderPane fx:id="Media_Show" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../application.css" BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="1065.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="btnChoose" mnemonicParsing="false" onAction="#MenuClicks" text="Choose" />
+                  </items>
+                </Menu>
+                <Menu fx:id="btnHelp" mnemonicParsing="false" onAction="#MenuClicks" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1065.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblElapsed" prefHeight="23.0" prefWidth="46.0" text="--:--" />
+                  <ProgressBar fx:id="progress_bar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="11.0" prefWidth="930.0" progress="0.0" />
+                  <Label fx:id="lblDuration" prefHeight="23.0" prefWidth="53.0" text="--:--" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </bottom>
+         <center>
+            <MediaView fx:id="mediaView" fitHeight="495.0" fitWidth="1035.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
